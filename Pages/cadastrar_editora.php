@@ -67,14 +67,13 @@ if (isset($_POST['pesquisar']))
         echo "<b>Editoras Cadastradas:</b><br><br>";
         while ($resultado = mysql_fetch_object($sql))
  	        {
-                echo "Codigo: ".$resultado->codigo." ";
-                echo "Nome: ".$resultado->nome."";
+                echo "Codigo: ".$resultado->codigo." "."<br>";
+                echo "Nome: ".$resultado->nome." "."<br>";
             }
         }
 }
 ?>
 
-// HTML:
 <!DOCTYPE html>
 <html>
 <head>
@@ -87,8 +86,10 @@ if (isset($_POST['pesquisar']))
         <form name="formulario_cadastro_db" method="POST" action="cadastrar_editora.php" enctype="multipart/form-data">
             <label>Codigo:</label>
             <input type="text" name="codigo" id="codigo" size="10">
+            <br>
             <label>Nome:</label>
             <input type="text" name="nome" id="nome" size="10">
+            <br>
             <input type="submit" name="gravar" value="Gravar">
             <input type="submit" name="excluir" value="Excluir">
             <input type="submit" name="alterar" value="Alterar">

@@ -6,9 +6,10 @@ $banco    = mysql_select_db("livraria");
 if (isset($_POST['gravar'])) {
     $codigo = $_POST['codigo'];
     $nome = $_POST['nome'];
+    $pais = $_POST['pais'];
 
-    $sql = "INSERT INTO categoria (codigo, nome)
-            VALUES ('$codigo', '$nome')";
+    $sql = "INSERT INTO autor (codigo, nome, pais)
+            VALUES ('$codigo', '$nome', '$pais')";
     $resultado = mysql_query($sql);
 
     if ($resultado) {
@@ -22,8 +23,9 @@ if (isset($_POST['excluir']))
 {
     $codigo = $_POST['codigo'];
     $nome = $_POST['nome'];
+    $pais = $_POST['pais'];
 
-    $sql = "DELETE FROM categoria WHERE codigo = '$codigo'";
+    $sql = "DELETE FROM autor WHERE codigo = '$codigo'";
 
     $resultado = mysql_query($sql);
 
@@ -41,8 +43,9 @@ if (isset($_POST['alterar']))
 {
    $codigo = $_POST['codigo'];
    $nome = $_POST['nome'];
+   $pais = $_POST['pais'];
 
-   $sql = "UPDATE categoria SET nome='$nome'
+   $sql = "UPDATE autor SET nome='$nome', pais='$pais'
             WHERE codigo = '$codigo'";
    $resultado = mysql_query($sql);
 
@@ -58,17 +61,18 @@ if (isset($_POST['alterar']))
 
 if (isset($_POST['pesquisar']))
 {
-   $sql = mysql_query("SELECT codigo, nome FROM categoria");
+   $sql = mysql_query("SELECT codigo, nome, pais FROM autor");
    
    if (mysql_num_rows($sql) == 0)
          {echo "Desculpe, mas sua pesquisa não retornou resultados.";}
    else
         {
-        echo "<b>Categorias Cadastradas:</b><br><br>";
+        echo "<b>Autores Cadastrados:</b><br><br>";
         while ($resultado = mysql_fetch_object($sql))
  	        {
                 echo "Codigo: ".$resultado->codigo." "."<br>";
                 echo "Nome: ".$resultado->nome." "."<br>";
+                echo "País: ".$resultado->pais." "."<br>";
             }
         }
 }
@@ -77,18 +81,21 @@ if (isset($_POST['pesquisar']))
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cadastrar Categorias</title>
+    <title>Cadastrar Autores</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="formulario_cadastro_db"> 
-        <h1>Cadastrar Categorias</h1>
-        <form name="formulario_cadastro_db" method="POST" action="cadastrar_categoria.php" enctype="multipart/form-data">
+        <h1>Cadastrar Autores</h1>
+        <form name="formulario_cadastro_db" method="POST" action="cadastrar_autor.php" enctype="multipart/form-data">
             <label>Codigo:</label>
             <input type="text" name="codigo" id="codigo" size="10">
             <br>
             <label>Nome:</label>
             <input type="text" name="nome" id="nome" size="10">
+            <br>
+            <label>País:</label>
+            <input type="text" name="pais" id="pais" size="10">
             <br>
             <input type="submit" name="gravar" value="Gravar">
             <input type="submit" name="excluir" value="Excluir">
