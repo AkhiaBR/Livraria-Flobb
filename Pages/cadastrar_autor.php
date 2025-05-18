@@ -82,7 +82,8 @@ if (isset($_POST['pesquisar']))
 <html>
 <head>
     <title>Cadastrar Autores</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../Assets/css/styles.css">
 </head>
 <body>
     <div class="formulario_cadastro_db"> 
