@@ -91,13 +91,10 @@ if (isset($_POST['pesquisar']))
         <form name="formulario_cadastro_db" method="POST" action="cadastrar_autor.php" enctype="multipart/form-data">
             <label>Codigo:</label>
             <input type="text" name="codigo" id="codigo" size="10">
-            <br>
             <label>Nome:</label>
             <input type="text" name="nome" id="nome" size="10">
-            <br>
             <label>País:</label>
             <input type="text" name="pais" id="pais" size="10">
-            <br>
             <input type="submit" name="gravar" value="Gravar">
             <input type="submit" name="excluir" value="Excluir">
             <input type="submit" name="alterar" value="Alterar">
