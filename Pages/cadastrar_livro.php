@@ -1,11 +1,17 @@
 <?php
-$conectar = mysql_connect('localhost','root','');
-$banco    = mysql_select_db("livraria");
 
-// Função para salvar imagens - definida fora dos blocos condicionais para estar disponível em todo o script
+header('Content-Type: text/html; charset=utf-8');
+$conectar = mysql_connect('localhost','root','');
+mysql_query("SET NAMES 'utf8'");
+mysql_query("SET character_set_connection=utf8");
+mysql_query("SET character_set_client=utf8");
+mysql_query("SET character_set_results=utf8");
+$banco = mysql_select_db("livraria");
+
+// Função para salvar imagens: (fora das condicionais para não ser repetida)
 function salvarImagem($arquivo, $diretorio) {
     if ($arquivo['error'] === UPLOAD_ERR_OK) {
-        // Verifica se o diretório existe, se não, tenta criar
+        // Verifica se o diretório existe, se não, cria outro:
         if (!file_exists($diretorio) && !is_dir($diretorio)) {
             mkdir($diretorio, 0755, true);
         }
@@ -43,7 +49,7 @@ if (isset($_POST['gravar'])) {
     $nome_foto_capa = salvarImagem($_FILES['foto_capa'], $diretorio);
     $nome_foto_contracapa = salvarImagem($_FILES['foto_contracapa'], $diretorio);
     
-    // Se não houver imagens, usar strings vazias
+    // Se não houver imagens, usar strings vaziasa
     $nome_foto_capa = $nome_foto_capa ?: '';
     $nome_foto_contracapa = $nome_foto_contracapa ?: '';
 
