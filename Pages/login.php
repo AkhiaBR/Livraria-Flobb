@@ -1,22 +1,29 @@
 <?php
-// Configurações de login
 header('Content-Type: text/html; charset=utf-8');
+$conectar = mysql_connect('localhost','root','');
+mysql_query("SET NAMES 'utf8'");
+mysql_query("SET character_set_connection=utf8");
+mysql_query("SET character_set_client=utf8");
+mysql_query("SET character_set_results=utf8");
+$banco = mysql_select_db("livraria");
 
-// Verificar se o formulário foi enviado
 if (isset($_POST['Login'])) {
     $login = $_POST['login'];
     $senha = $_POST['senha'];
-    
-    // Aqui você pode definir usuário e senha fixos ou conectar ao banco
-    $usuario_correto = "admin";
-    $senha_correta = "123456";
-    
-    if ($login == $usuario_correto && $senha == $senha_correta) {
-        // Login correto - redirecionar para menu
-        header("Location: menu.php");
-        exit();
-    } else {
-        $erro = "Login ou senha incorretos!";
+
+    $sql = "select * from livraria.usuario where login = '$login' and senha = '$senha'";
+
+    $resultado = mysql_query($sql);
+        
+    if (mysql_num_rows($resultado)<=0) {
+        echo "<script language='javascript' type='text/javascript'>
+                alert('Login e/ou senha incorretos');
+                window.location.href='pagina_login.html';
+            </script>";
+    }
+    else {
+        setcookie('login',$login);
+        header('Location:menu.php');
     }
 }
 ?>
@@ -47,12 +54,6 @@ if (isset($_POST['Login'])) {
                 <input type="submit" name="Login" value="Entrar">
             </div>
         </form>
-        
-        <div class="info-login">
-            <p><strong>Dados de acesso:</strong></p>
-            <p>Login: admin</p>
-            <p>Senha: 123456</p>
-        </div>
     </div>
 </body>
 </html>
