@@ -1,4 +1,5 @@
-/* ===== RESET E CONFIGURAÇÕES GERAIS ===== */
+/* CONFIGURACAO INICIAL */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +7,6 @@
 }
 
 :root {
-    /* Cores principais */
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
     --accent-color: #e74c3c;
@@ -15,28 +15,23 @@
     --error-color: #e74c3c;
     --info-color: #3498db;
     
-    /* Cores de fundo */
     --bg-primary: #ecf0f1;
     --bg-secondary: #ffffff;
     --bg-dark: #34495e;
     --bg-light: #f8f9fa;
     
-    /* Cores de texto */
     --text-primary: #2c3e50;
     --text-secondary: #7f8c8d;
     --text-light: #ffffff;
     
-    /* Sombras */
     --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
     --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
     --shadow-heavy: 0 8px 30px rgba(0,0,0,0.2);
     
-    /* Bordas */
     --border-radius: 12px;
     --border-radius-small: 6px;
     --border-radius-large: 20px;
     
-    /* Transições */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s ease;
 }
@@ -45,11 +40,11 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-primary);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #8e66ea 0%, #8e66ea 100%);
     min-height: 100vh;
 }
 
-/* ===== HEADER PRINCIPAL ===== */
+/* HEADER */
 .header-home {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -94,7 +89,7 @@ body {
 }
 
 .btn-login {
-    background: var(--secondary-color);
+    background: #8e66ea;
     color: white;
 }
 
@@ -115,9 +110,9 @@ body {
     box-shadow: var(--shadow-medium);
 }
 
-/* ===== BANNER ===== */
+/* BANNEr */
 .banner {
-    background: linear-gradient(135deg, rgba(52, 73, 94, 0.9), rgba(44, 62, 80, 0.9)),
+    background: linear-gradient(135deg, rgba(0, 4, 41, 0.9), rgba(0, 4, 41, 0.9)),
                 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ecf0f1" width="1200" height="600"/><g fill="%23bdc3c7" opacity="0.3"><circle cx="200" cy="150" r="80"/><circle cx="800" cy="400" r="120"/><circle cx="1000" cy="200" r="60"/></g></svg>');
     background-size: cover;
     background-position: center;
@@ -140,14 +135,14 @@ body {
     opacity: 0.9;
 }
 
-/* ===== CONTAINER PRINCIPAL ===== */
+/* CONTAINER PRIMCIPAL */
 .container-home {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
-/* ===== FORMULÁRIOS ===== */
+/* FORMULÁRIOS */
 #formulario {
     background: var(--bg-secondary);
     border-radius: var(--border-radius-large);
@@ -179,7 +174,7 @@ body {
     border-radius: 2px;
 }
 
-/* ===== ELEMENTOS DE FORMULÁRIO ===== */
+/* FORMULÁRIO */
 label {
     display: block;
     margin-bottom: 0.5rem;
@@ -219,7 +214,7 @@ textarea {
     font-family: inherit;
 }
 
-/* ===== BOTÕES ===== */
+/* BOTÕES */
 .botoes {
     display: flex;
     gap: 1rem;
@@ -250,41 +245,41 @@ input[type="submit"],
     overflow: hidden;
 }
 
-/* Botão principal */
+/* BOTÃO PRINCIAPL */
 input[type="submit"][name="gravar"],
 .btn-opcao {
     background: linear-gradient(135deg, var(--secondary-color), #2980b9);
     color: white;
 }
 
-/* Botão de exclusão */
+/* BOTAO EXCLUSAO */
 input[type="submit"][name="excluir"],
 .btn-limpar {
     background: linear-gradient(135deg, var(--error-color), #c0392b);
     color: white;
 }
 
-/* Botão de alteração */
+/* BOTAO ALTERACAO */
 input[type="submit"][name="alterar"] {
     background: linear-gradient(135deg, var(--warning-color), #d68910);
     color: white;
 }
 
-/* Botão de pesquisa */
+/* BOTAO PESQUISA */
 input[type="submit"][name="pesquisar"],
 .btn-pesquisar {
     background: linear-gradient(135deg, var(--success-color), #229954);
     color: white;
 }
 
-/* Botão de compra */
+/* BOTAO COMPRA */
 .btn-comprar {
     background: linear-gradient(135deg, #28a745, #20c997);
     color: white;
     width: 100%;
 }
 
-/* Estados hover dos botões */
+/* HOVER BOTOES */
 input[type="submit"]:hover,
 .btn-opcao:hover,
 .btn-sair:hover,
@@ -318,7 +313,7 @@ input[type="submit"]:active::before,
     height: 300px;
 }
 
-/* ===== MENU PRINCIPAL ===== */
+/* PAGINA MENU PRINCIAPL */
 .menu-opcoes {
     text-align: center;
 }
@@ -374,7 +369,7 @@ input[type="submit"]:active::before,
     line-height: 1.5;
 }
 
-/* ===== MENSAGENS ===== */
+/* MENSAGENS */
 .mensagem {
     padding: 1rem 1.5rem;
     margin: 1rem 0;
@@ -397,9 +392,9 @@ input[type="submit"]:active::before,
 }
 
 .mensagem.info {
-    background: rgba(52, 152, 219, 0.1);
-    color: var(--info-color);
-    border-left-color: var(--info-color);
+    background: rgb(131, 0, 0);
+    color: rgb(255, 255, 255);
+    border-left-color: rgb(255, 0, 0);
     text-align: center;
     padding: 2rem;
 }
@@ -407,11 +402,12 @@ input[type="submit"]:active::before,
 .mensagem.info h2 {
     margin-bottom: 1rem;
     font-size: 1.8rem;
+    color: rgb(255, 255, 255)
 }
 
-/* ===== FILTROS ===== */
+/* FILTROS */
 .filtros {
-    background: white;
+    background: rgba(0, 4, 41, 0.9);
     border-radius: var(--border-radius);
     padding: 2rem;
     margin-bottom: 2rem;
@@ -419,7 +415,7 @@ input[type="submit"]:active::before,
 }
 
 .filtros h3 {
-    color: var(--primary-color);
+    color: rgb(255, 255, 255);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
     text-align: center;
@@ -440,6 +436,7 @@ input[type="submit"]:active::before,
 .filtro-group label {
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
+    color:rgb(255, 255, 255)
 }
 
 .filtro-group select,
@@ -447,7 +444,7 @@ input[type="submit"]:active::before,
     margin-bottom: 0;
 }
 
-/* ===== RESULTADOS DE LIVROS ===== */
+/* LIVROS */
 .resultados-section h2 {
     color: var(--primary-color);
     margin-bottom: 2rem;
@@ -463,7 +460,7 @@ input[type="submit"]:active::before,
 }
 
 .livro-card {
-    background: white;
+    background: #8e66ea;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--shadow-light);
@@ -522,10 +519,11 @@ input[type="submit"]:active::before,
 
 .livro-info {
     padding: 1.5rem;
+    background-color: rgba(0, 4, 41, 0.9);
 }
 
 .livro-info h3 {
-    color: var(--primary-color);
+    color: rgb(255, 255, 255);
     margin-bottom: 1rem;
     font-size: 1.3rem;
     line-height: 1.3;
@@ -537,19 +535,19 @@ input[type="submit"]:active::before,
 
 .livro-detalhes p {
     margin-bottom: 0.5rem;
-    color: var(--text-secondary);
+    color: rgb(255, 255, 255);
     font-size: 0.9rem;
 }
 
 .livro-resenha {
-    background: var(--bg-light);
+    background: rgb(0, 0, 0);
     padding: 1rem;
     border-radius: var(--border-radius-small);
     margin-bottom: 1rem;
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: rgb(255, 255, 255);
     line-height: 1.4;
-    border-left: 3px solid var(--secondary-color);
+    border-left: rgb(0, 0, 0);
 }
 
 .livro-compra {
@@ -567,7 +565,7 @@ input[type="submit"]:active::before,
     color: var(--success-color);
 }
 
-/* ===== CARRINHO DE COMPRAS ===== */
+/* CARRINHO DE COMPRAS */
 .carrinho-modal {
     display: none;
     position: fixed;
@@ -723,7 +721,7 @@ input[type="submit"]:active::before,
     padding: 2rem 0;
 }
 
-/* ===== RESULTADOS DE PESQUISA ===== */
+/* RESULTADO PESQUISA */
 .resultados {
     background: white;
     border-radius: var(--border-radius);
@@ -812,9 +810,9 @@ input[type="submit"]:active::before,
     box-shadow: var(--shadow-medium);
 }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 .footer {
-    background: var(--bg-dark);
+    background: rgba(0, 4, 41, 0.9);
     color: var(--text-light);
     margin-top: 4rem;
 }
@@ -846,7 +844,7 @@ input[type="submit"]:active::before,
     opacity: 0.8;
 }
 
-/* ===== ANIMAÇÕES ===== */
+/* ANIMACOES */
 @keyframes slideInDown {
     from {
         opacity: 0;
@@ -882,7 +880,7 @@ input[type="submit"]:active::before,
     }
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
@@ -968,7 +966,7 @@ input[type="submit"]:active::before,
     }
 }
 
-/* ===== ESTADOS DE FOCO PARA ACESSIBILIDADE ===== */
+/* ACESSIBILIDADE */
 *:focus {
     outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
@@ -980,14 +978,14 @@ input[type="submit"]:focus,
     outline-color: var(--accent-color);
 }
 
-/* ===== MELHORIAS DE PERFORMANCE ===== */
+/* PERFORMANCE */
 .livro-card,
 .opcao-card,
 .item {
     will-change: transform;
 }
 
-/* ===== IMPRESSÃO ===== */
+/* IMPRESSÃO */
 @media print {
     .header-home,
     .banner,
@@ -1007,6 +1005,6 @@ input[type="submit"]:focus,
     .opcao-card {
         break-inside: avoid;
         box-shadow: none;
-        border: 1px solid #ccc;
+        border: 1px solid #000000;
     }
 }

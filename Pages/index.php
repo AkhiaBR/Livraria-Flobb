@@ -42,7 +42,7 @@ if (!$banco) {
         </div>
     </header>
 
-    <!-- Carrinho de Compras (Modal) -->
+    <!-- Carrinho de Comprass -->
     <div id="carrinho-modal" class="carrinho-modal">
         <div class="carrinho-content">
             <div class="carrinho-header">
@@ -127,7 +127,7 @@ if (!$banco) {
         <!-- Resultados -->
         <section class="resultados-section">
             <?php
-            // Inicializa variáveis de filtro
+            // Inicializa variaveis de filtro
             $autor_filtro = null;
             $categoria_filtro = null;
             $editora_filtro = null;
@@ -206,7 +206,7 @@ if (!$banco) {
                     echo '<p><strong>📄 Páginas:</strong> ' . $livro['numero_paginas'] . ' | <strong>📅 Ano:</strong> ' . $livro['ano'] . '</p>';
                     echo '</div>';
                     
-                    // Resenha (limitada)
+                    // Resenha
                     if ($livro['resenha']) {
                         $resenha_resumida = strlen($livro['resenha']) > 120 ? 
                             substr($livro['resenha'], 0, 120) . '...' : $livro['resenha'];
@@ -302,7 +302,6 @@ if (!$banco) {
             
             atualizarCarrinho();
             
-            // Feedback visual
             const btn = event.target;
             const textoOriginal = btn.textContent;
             btn.textContent = '✅ Adicionado!';
@@ -390,7 +389,6 @@ if (!$banco) {
             toggleCarrinho();
         }
 
-        // Fechar modal clicando fora dele
         window.onclick = function(event) {
             const modal = document.getElementById('carrinho-modal');
             if (event.target === modal) {
@@ -398,7 +396,6 @@ if (!$banco) {
             }
         }
 
-        // Inicializar carrinho
         atualizarCarrinho();
     </script>
 </body>
