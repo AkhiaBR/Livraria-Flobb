@@ -42,6 +42,78 @@ if (!$banco) {
         </div>
     </header>
 
+    <!-- Banner Carrossel -->
+    <section class="carousel-banner">
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide active">
+                    <div class="slide-content">
+                        <div class="slide-text">
+                            <h2>📚 Novidades da Semana</h2>
+                            <p>Descubra os lançamentos mais esperados e bestsellers que acabaram de chegar!</p>
+                            <button class="slide-btn">Ver Novidades</button>
+                        </div>
+                        <div class="slide-image">
+                            <div class="book-stack">
+                                <div class="book book1">📖</div>
+                                <div class="book book2">📚</div>
+                                <div class="book book3">📘</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <div class="slide-text">
+                            <h2>🔥 Promoções Imperdíveis</h2>
+                            <p>Até 50% de desconto em livros selecionados. Aproveite esta oportunidade única!</p>
+                            <button class="slide-btn">Ver Ofertas</button>
+                        </div>
+                        <div class="slide-image">
+                            <div class="promo-badge">
+                                <span class="discount">-50%</span>
+                                <div class="promo-books">
+                                    <div class="promo-book">📗</div>
+                                    <div class="promo-book">📙</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <div class="slide-text">
+                            <h2>⭐ Mais Vendidos</h2>
+                            <p>Conheça os títulos que estão conquistando os leitores em todo o Brasil!</p>
+                            <button class="slide-btn">Ver Ranking</button>
+                        </div>
+                        <div class="slide-image">
+                            <div class="bestseller-crown">
+                                <div class="crown">👑</div>
+                                <div class="bestseller-books">
+                                    <div class="bestseller-book gold">🏆</div>
+                                    <div class="bestseller-book silver">🥈</div>
+                                    <div class="bestseller-book bronze">🥉</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="carousel-btn prev" onclick="previousSlide()">&#8249;</button>
+            <button class="carousel-btn next" onclick="nextSlide()">&#8250;</button>
+            
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
     <!-- Carrinho de Comprass -->
     <div id="carrinho-modal" class="carrinho-modal">
         <div class="carrinho-content">
@@ -395,6 +467,49 @@ if (!$banco) {
                 modal.style.display = 'none';
             }
         }
+
+        // Sistema do Carrossel
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        
+        function showSlide(index) {
+            // Remove classe active de todos os slides e dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Adiciona classe active ao slide e dot atual
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+        
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+        
+        function previousSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+        
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+        
+        // Auto-play do carrossel
+        let autoSlide = setInterval(nextSlide, 5000);
+        
+        // Pausa o auto-play quando o mouse está sobre o carrossel
+        document.querySelector('.carousel-banner').addEventListener('mouseenter', () => {
+            clearInterval(autoSlide);
+        });
+        
+        // Retoma o auto-play quando o mouse sai do carrossel
+        document.querySelector('.carousel-banner').addEventListener('mouseleave', () => {
+            autoSlide = setInterval(nextSlide, 5000);
+        });
 
         atualizarCarrinho();
     </script>
