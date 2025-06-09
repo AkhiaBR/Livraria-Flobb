@@ -51,7 +51,6 @@ if (!$banco) {
                         <div class="slide-text">
                             <h2>📚 Novidades da Semana</h2>
                             <p>Descubra os lançamentos mais esperados e bestsellers que acabaram de chegar!</p>
-                            <button class="slide-btn">Ver Novidades</button>
                         </div>
                         <div class="slide-image">
                             <div class="book-stack">
@@ -68,7 +67,6 @@ if (!$banco) {
                         <div class="slide-text">
                             <h2>🔥 Promoções Imperdíveis</h2>
                             <p>Até 50% de desconto em livros selecionados. Aproveite esta oportunidade única!</p>
-                            <button class="slide-btn">Ver Ofertas</button>
                         </div>
                         <div class="slide-image">
                             <div class="promo-badge">
@@ -87,7 +85,6 @@ if (!$banco) {
                         <div class="slide-text">
                             <h2>⭐ Mais Vendidos</h2>
                             <p>Conheça os títulos que estão conquistando os leitores em todo o Brasil!</p>
-                            <button class="slide-btn">Ver Ranking</button>
                         </div>
                         <div class="slide-image">
                             <div class="bestseller-crown">
